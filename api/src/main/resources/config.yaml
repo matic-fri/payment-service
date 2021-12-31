@@ -1,0 +1,28 @@
+kumuluzee:
+  name: payment-service
+  env:
+    name: dev
+  version: 1.0.0
+  server:
+    base-url: http://localhost:8080
+    http:
+      port: 8080
+  datasources:
+    - jndi-name: jdbc/PaymentMetadataDS
+      connection-url: jdbc:postgresql://abul.db.elephantsql.com/igkywmox
+      username: igkywmox
+      password: 2_pNpLTnwT-R-CVW86Zdc1CCkj5demVV
+      max-pool-size: 20
+  health:
+    checks:
+      data-source-health-check:
+        type: liveness
+        jndi-name: jdbc/PaymentMetadataDS
+      http-health-check:
+        connection-url: http://localhost:8080/v1/payments
+  metrics:
+    web-instrumentation:
+      - name: payments-endpoint
+        url-pattern: /v1/payments/*
+rest-properties:
+  maintenance-mode: false

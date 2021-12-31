@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="api" />
+        <module name="lib" />
+        <module name="models" />
+        <module name="payment-api" />
+        <module name="payment-lib" />
+        <module name="payment-models" />
+        <module name="payment-services" />
+        <module name="services" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>
