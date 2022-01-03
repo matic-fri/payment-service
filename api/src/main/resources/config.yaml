@@ -9,9 +9,9 @@ kumuluzee:
       port: 8080
   datasources:
     - jndi-name: jdbc/PaymentMetadataDS
-      connection-url: jdbc:postgresql://abul.db.elephantsql.com/igkywmox
-      username: igkywmox
-      password: 2_pNpLTnwT-R-CVW86Zdc1CCkj5demVV
+      connection-url: jdbc:postgresql://rsobaza.postgres.database.azure.com:5432/postgres
+      username: postgres@rsobaza
+      password: RSOzapiski1
       max-pool-size: 20
   health:
     checks:
@@ -24,5 +24,45 @@ kumuluzee:
     web-instrumentation:
       - name: payments-endpoint
         url-pattern: /v1/payments/*
+  logs:
+    config-file: '<?xml version="1.0" encoding="utf-8"?>
+<Configuration>
+    <Appenders>
+        <RollingFile name="file" fileName="${sys:mule.home}${sys:file.separator}logs${sys:file.separator}test.log" 
+                filePattern="${sys:mule.home}${sys:file.separator}logs${sys:file.separator}test-%i.log">
+            <PatternLayout pattern="%d [%t] %-5p %c - %m%n" />
+            <SizeBasedTriggeringPolicy size="10 MB" />
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+        
+        <Socket name="socket" host="2cef82f4-2216-4d86-87a7-d59617f61094-ls.logit.io" port="23728" protocol="ssl">
+        <PatternLayout pattern="{&quot;log_timestamp&quot;:&quot;%d&quot; ,&quot;log_thread&quot;:&quot;[%t]&quot; , &quot;log_level&quot;:&quot;%-5p&quot; , %m}%n" /> 
+        </Socket>
+        
+    </Appenders>
+    <Loggers>
+        <!-- CXF is used heavily by Mule for web services -->
+        <AsyncLogger name="org.apache.cxf" level="WARN"/>
+        
+        <!-- Apache Commons tend to make a lot of noise which can clutter the log-->
+        <AsyncLogger name="org.apache" level="WARN"/>
+        
+        <!-- Reduce startup noise -->
+        <AsyncLogger name="org.springframework.beans.factory" level="WARN"/>
+        
+        <!-- Mule classes -->
+        <AsyncLogger name="org.mule" level="INFO"/>
+        <AsyncLogger name="com.mulesoft" level="INFO"/>
+        
+        <!-- Reduce DM verbosity -->
+        <AsyncLogger name="org.jetel" level="WARN"/>
+        <AsyncLogger name="Tracking" level="WARN"/>
+        
+        <AsyncRoot level="INFO">
+            <AppenderRef ref="file" />
+            <AppenderRef ref="socket" />
+        </AsyncRoot>
+    </Loggers>
+</Configuration>'
 rest-properties:
   maintenance-mode: false
