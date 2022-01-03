@@ -1,5 +1,13 @@
 package org.rso.naloga.zapiski.api.v1.resouces;
 
+import com.kumuluz.ee.cors.annotations.CrossOrigin;
+import org.eclipse.microprofile.openapi.annotations.Operation;
+import org.eclipse.microprofile.openapi.annotations.enums.SchemaType;
+import org.eclipse.microprofile.openapi.annotations.headers.Header;
+import org.eclipse.microprofile.openapi.annotations.media.Content;
+import org.eclipse.microprofile.openapi.annotations.media.Schema;
+import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
+import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import user.lib.Account;
 import user.lib.Payment;
 import user.services.beans.AccountBean;
@@ -19,6 +27,7 @@ import java.util.logging.Logger;
 @Path("/payments")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
+@CrossOrigin(supportedMethods = "GET, POST, PUT, DELETE, OPTIONS")
 public class PaymentResource {
 
     private Logger log = Logger.getLogger(PaymentResource.class.getName());
@@ -31,6 +40,14 @@ public class PaymentResource {
     @Context
     protected UriInfo uriInfo;
 
+
+    @Operation(description = "Get all payments.", summary = "Get payments.")
+    @APIResponses({
+            @APIResponse(responseCode = "200",
+                    description = "All payments",
+                    content = @Content(schema = @Schema(implementation = Payment.class, type = SchemaType.ARRAY)),
+                    headers = {@Header(name = "X-Total-Count", description = "Payments")}
+            )})
     @GET
     public Response getPayments(){
         List<Payment> payments = paymentBean.getAllPayments();
@@ -38,6 +55,14 @@ public class PaymentResource {
         return Response.status(Response.Status.OK).entity(payments).build();
     }
 
+
+    @Operation(description = "Get specified payment.", summary = "Get payment.")
+    @APIResponses({
+            @APIResponse(responseCode = "200",
+                    description = "Specified payment",
+                    content = @Content(schema = @Schema(implementation = Payment.class, type = SchemaType.OBJECT)),
+                    headers = {@Header(name = "X-Total-Count", description = "Payment")}
+            )})
     @GET
     @Path("{paymentId}")
     public Response getPaymentById(@PathParam("paymentId") int paymentId){
@@ -51,6 +76,14 @@ public class PaymentResource {
         return Response.status(Response.Status.OK).entity(payment).build();
     }
 
+
+    @Operation(description = "Create new payment", summary = "Create payment.")
+    @APIResponses({
+            @APIResponse(responseCode = "200",
+                    description = "New payment",
+                    content = @Content(schema = @Schema(implementation = Payment.class, type = SchemaType.OBJECT)),
+                    headers = {@Header(name = "X-Total-Count", description = "Payment")}
+            )})
     @POST
     public Response createPayment(Payment payment){
 
@@ -90,6 +123,14 @@ public class PaymentResource {
         return Response.status(Response.Status.OK).entity(payment).build();
     }
 
+
+    @Operation(description = "Update specified payment.", summary = "Update payment.")
+    @APIResponses({
+            @APIResponse(responseCode = "200",
+                    description = "Updated payment",
+                    content = @Content(schema = @Schema(implementation = Payment.class, type = SchemaType.OBJECT)),
+                    headers = {@Header(name = "X-Total-Count", description = "Payment")}
+            )})
     @PUT
     @Path("{paymentId}")
     public Response putPayment(@PathParam("paymentId") Long paymentId, Payment payment) {
@@ -109,6 +150,14 @@ public class PaymentResource {
         return Response.status(Response.Status.OK).entity(payment).build();
     }
 
+
+    @Operation(description = "Delete specified payment.", summary = "Delete payment.")
+    @APIResponses({
+            @APIResponse(responseCode = "200",
+                    description = "Status",
+                    content = @Content(schema = @Schema(implementation = Payment.class, type = SchemaType.BOOLEAN)),
+                    headers = {@Header(name = "X-Total-Count", description = "Status")}
+            )})
     @DELETE
     @Path("{paymentId}")
     public Response deleteLiterature(@PathParam("paymentId") int paymentId) {
