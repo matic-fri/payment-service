@@ -9,9 +9,9 @@ kumuluzee:
       port: 8080
   datasources:
     - jndi-name: jdbc/PaymentMetadataDS
-      connection-url: jdbc:postgresql://rsobaza.postgres.database.azure.com:5432/postgres
-      username: postgres@rsobaza
-      password: RSOzapiski1
+      connection-url: jdbc:postgresql://rso-db.postgres.database.azure.com:5432/postgres
+      username: postgres@rso-admin
+      password: P0stgr3s
       max-pool-size: 20
   health:
     checks:
