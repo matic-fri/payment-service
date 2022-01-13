@@ -10,7 +10,7 @@ kumuluzee:
   datasources:
     - jndi-name: jdbc/PaymentMetadataDS
       connection-url: jdbc:postgresql://rso-db.postgres.database.azure.com:5432/postgres
-      username: postgres@rso-admin
+      username: postgres@rso-db
       password: P0stgr3s
       max-pool-size: 20
   health:
