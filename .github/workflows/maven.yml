@@ -22,7 +22,7 @@ jobs:
       - name: Build and push image to dockerhub
         uses: mr-smithers-excellent/docker-build-push@v5
         with:
-          image: matic4fri/rso-comment-service
+          image: matic4fri/rso-payment-service
           tags: latest
           registry: docker.io
           dockerfile: Dockerfile
