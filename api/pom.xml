@@ -14,6 +14,7 @@
 
 
     <dependencies>
+
         <dependency>
             <groupId>com.kumuluz.ee</groupId>
             <artifactId>kumuluzee-core</artifactId>
@@ -22,25 +23,14 @@
             <groupId>com.kumuluz.ee</groupId>
             <artifactId>kumuluzee-servlet-jetty</artifactId>
         </dependency>
-        <dependency>
-            <artifactId>kumuluzee-config-etcd</artifactId>
+        <!--NOT YET IMPLEMENTED<dependency>
             <groupId>com.kumuluz.ee.config</groupId>
-        </dependency>
-        <dependency>
-            <groupId>com.kumuluz.ee.cors</groupId>
-            <artifactId>kumuluzee-cors</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.rso.naloga</groupId>
-            <artifactId>payment-services</artifactId>
-        </dependency>
-
-
+            <artifactId>kumuluzee-config-consul</artifactId>
+        </dependency>-->
         <dependency>
             <groupId>com.kumuluz.ee.health</groupId>
             <artifactId>kumuluzee-health</artifactId>
         </dependency>
-
         <dependency>
             <groupId>com.kumuluz.ee.config</groupId>
             <artifactId>kumuluzee-config-mp</artifactId>
@@ -63,11 +53,23 @@
             <artifactId>kumuluzee-logs-log4j2</artifactId>
             <groupId>com.kumuluz.ee.logs</groupId>
         </dependency>
-
         <dependency>
             <groupId>com.kumuluz.ee.logs</groupId>
             <artifactId>kumuluzee-logs-common</artifactId>
             <version>1.4.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.kumuluz.ee.graphql</groupId>
+            <artifactId>kumuluzee-graphql</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.kumuluz.ee.graphql</groupId>
+            <artifactId>kumuluzee-graphql-ui</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.rso.naloga</groupId>
+            <artifactId>payment-services</artifactId>
         </dependency>
     </dependencies>
 

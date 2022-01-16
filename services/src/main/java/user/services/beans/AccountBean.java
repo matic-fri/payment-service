@@ -1,15 +1,21 @@
 package user.services.beans;
 
 import user.lib.Account;
+import user.lib.UpdateBalance;
 import user.models.converters.AccountConverter;
 import user.models.entities.AccountEntity;
+import org.eclipse.microprofile.faulttolerance.CircuitBreaker;
+import org.eclipse.microprofile.faulttolerance.Fallback;
+import org.eclipse.microprofile.faulttolerance.Timeout;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import javax.ws.rs.NotFoundException;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
@@ -32,7 +38,19 @@ public class AccountBean extends BeanBase {
 
     }
 
-    public Account getAccount(Integer id){
+    @Timeout(value = 3, unit = ChronoUnit.SECONDS)
+    @CircuitBreaker(requestVolumeThreshold = 2)
+    @Fallback(fallbackMethod = "getAccountFallback")
+    public Account getAccount(long id){
+
+        if(id == 2022){
+            try{
+                TimeUnit.SECONDS.sleep(5);
+            } catch (InterruptedException e){
+                System.out.println("Time error:\n" + e);
+            }
+        }
+
         AccountEntity AccountEn = em.find(AccountEntity.class, id);
 
         if (AccountEn == null){
@@ -45,7 +63,13 @@ public class AccountBean extends BeanBase {
 
     }
 
-    public Account getAccountByUser(Integer userId){
+    public Account getAccountFallback(long id){
+        Account a = new Account();
+        a.setId((long)-1);
+        return a;
+    }
+
+    public Account getAccountByUser(long userId){
         AccountEntity AccountEn = em.createQuery("SELECT a FROM AccountEntity a WHERE a.userId = :usrId", AccountEntity.class)
                 .setParameter("usrId", userId).getSingleResult();
 
@@ -80,7 +104,34 @@ public class AccountBean extends BeanBase {
 
     }
 
-    public Account updateAccount(Long id, Account account) {
+    public Account updateBalance(long id, UpdateBalance ub){
+
+        AccountEntity a = em.find(AccountEntity.class, id);
+
+        if(a == null){
+            return null;
+        }
+
+
+        try{
+            beginTx(em);
+            a.setBalance(a.getBalance()+ub.getAddBalance());
+            a.setReserved(a.getReserved()+ub.getAddReserved());
+            a.setId(a.getId());
+            a = em.merge(a);
+            commitTx(em);
+
+        }
+        catch (Exception e){
+            rollbackTx(em);
+        }
+
+        return AccountConverter.toDto(a);
+
+
+    }
+
+    public Account updateAccount(long id, Account account) {
 
         AccountEntity AccountEn_old = em.find(AccountEntity.class, id);
 
@@ -103,7 +154,7 @@ public class AccountBean extends BeanBase {
         return AccountConverter.toDto(AccountEn_new);
     }
 
-    public boolean deleteAccount(int id) {
+    public boolean deleteAccount(long id) {
 
         AccountEntity accountEntity = em.find(AccountEntity.class, id);
 

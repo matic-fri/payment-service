@@ -1,0 +1,204 @@
+2022-01-16 16:23:51,390 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-01-16 16:23:58,443 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2022-01-16 16:23:59,794 [main] INFO  org.jboss.weld.environment.servletWeldServlet - WELD-ENV-001008: Initialize Weld using ServletContainerInitializer
+2022-01-16 16:23:59,813 [main] INFO  org.jboss.weld.Version - WELD-000900: 3.1.1 (Final)
+2022-01-16 16:24:00,112 [main] INFO  org.jboss.weld.Bootstrap - WELD-ENV-000020: Using jandex for bean discovery
+2022-01-16 16:24:00,456 [main] INFO  org.jboss.weld.Bootstrap - WELD-000101: Transactional services not available. Injection of @Inject UserTransaction not available. Transactional observers will be invoked synchronously.
+2022-01-16 16:24:00,622 [main] INFO  org.jboss.weld.Event - WELD-000411: Observer method [BackedAnnotatedMethod] public org.glassfish.jersey.ext.cdi1x.internal.ProcessAllAnnotatedTypes.processAnnotatedType(@Observes ProcessAnnotatedType<?>, BeanManager) receives events for all annotated types. Consider restricting events using @WithAnnotations or a generic type with bounds.
+2022-01-16 16:24:00,696 [main] INFO  io.smallrye.faulttolerance.FaultToleranceExtension - MicroProfile: Fault Tolerance activated (SmallRye Fault Tolerance version: 4.3.1)
+2022-01-16 16:24:00,767 [weld-worker-6] INFO  org.jboss.weld.Bootstrap - WELD-000119: Not generating any bean definitions from com.kumuluz.ee.health.checks.MongoHealthCheck because of underlying class loading error: Type Failure to load: com.mongodb.MongoClient not found.  If this is unexpected, enable DEBUG logging to see the full error.
+2022-01-16 16:24:00,855 [main] INFO  org.jboss.weld.environment.servletJetty - WELD-ENV-001200: Jetty 7.2+ detected, CDI injection will be available in Servlets and Filters. Injection into Listeners should work on Jetty 9.1.1 and newer.
+2022-01-16 16:49:20,199 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-01-16 16:49:30,854 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2022-01-16 16:49:33,755 [main] INFO  org.jboss.weld.environment.servletWeldServlet - WELD-ENV-001008: Initialize Weld using ServletContainerInitializer
+2022-01-16 16:49:33,773 [main] INFO  org.jboss.weld.Version - WELD-000900: 3.1.1 (Final)
+2022-01-16 16:49:34,025 [main] INFO  org.jboss.weld.Bootstrap - WELD-ENV-000020: Using jandex for bean discovery
+2022-01-16 16:49:34,334 [main] INFO  org.jboss.weld.Bootstrap - WELD-000101: Transactional services not available. Injection of @Inject UserTransaction not available. Transactional observers will be invoked synchronously.
+2022-01-16 16:49:34,510 [main] INFO  org.jboss.weld.Event - WELD-000411: Observer method [BackedAnnotatedMethod] public org.glassfish.jersey.ext.cdi1x.internal.ProcessAllAnnotatedTypes.processAnnotatedType(@Observes ProcessAnnotatedType<?>, BeanManager) receives events for all annotated types. Consider restricting events using @WithAnnotations or a generic type with bounds.
+2022-01-16 16:49:34,568 [main] INFO  io.smallrye.faulttolerance.FaultToleranceExtension - MicroProfile: Fault Tolerance activated (SmallRye Fault Tolerance version: 4.3.1)
+2022-01-16 16:49:34,636 [weld-worker-4] INFO  org.jboss.weld.Bootstrap - WELD-000119: Not generating any bean definitions from com.kumuluz.ee.health.checks.MongoHealthCheck because of underlying class loading error: Type Failure to load: com.mongodb.MongoClient not found.  If this is unexpected, enable DEBUG logging to see the full error.
+2022-01-16 16:49:34,721 [main] INFO  org.jboss.weld.environment.servletJetty - WELD-ENV-001200: Jetty 7.2+ detected, CDI injection will be available in Servlets and Filters. Injection into Listeners should work on Jetty 9.1.1 and newer.
+2022-01-16 19:00:08,353 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-01-16 19:00:25,590 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-01-16 19:00:33,126 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2022-01-16 19:00:35,686 [main] INFO  org.jboss.weld.environment.servletWeldServlet - WELD-ENV-001008: Initialize Weld using ServletContainerInitializer
+2022-01-16 19:00:35,704 [main] INFO  org.jboss.weld.Version - WELD-000900: 3.1.1 (Final)
+2022-01-16 19:00:36,131 [main] INFO  org.jboss.weld.Bootstrap - WELD-ENV-000020: Using jandex for bean discovery
+2022-01-16 19:00:36,604 [main] INFO  org.jboss.weld.Bootstrap - WELD-000101: Transactional services not available. Injection of @Inject UserTransaction not available. Transactional observers will be invoked synchronously.
+2022-01-16 19:00:36,830 [main] INFO  org.jboss.weld.Event - WELD-000411: Observer method [BackedAnnotatedMethod] public org.glassfish.jersey.ext.cdi1x.internal.ProcessAllAnnotatedTypes.processAnnotatedType(@Observes ProcessAnnotatedType<?>, BeanManager) receives events for all annotated types. Consider restricting events using @WithAnnotations or a generic type with bounds.
+2022-01-16 19:00:36,938 [main] INFO  io.smallrye.faulttolerance.FaultToleranceExtension - MicroProfile: Fault Tolerance activated (SmallRye Fault Tolerance version: 4.3.1)
+2022-01-16 19:00:37,107 [weld-worker-2] INFO  org.jboss.weld.Bootstrap - WELD-000119: Not generating any bean definitions from com.kumuluz.ee.health.checks.MongoHealthCheck because of underlying class loading error: Type Failure to load: com.mongodb.MongoClient not found.  If this is unexpected, enable DEBUG logging to see the full error.
+2022-01-16 19:00:37,216 [main] INFO  org.jboss.weld.environment.servletJetty - WELD-ENV-001200: Jetty 7.2+ detected, CDI injection will be available in Servlets and Filters. Injection into Listeners should work on Jetty 9.1.1 and newer.
+2022-01-16 19:01:15,432 [qtp553879264-42] WARN  graphql.GraphQL - Query failed to parse : 'query MyQuery {
+  allAccounts {
+    result {
+      balance
+      id
+      reserved
+      userId
+    }
+  }
+}
+
+mutation test {
+}
+'
+2022-01-16 19:01:45,513 [qtp553879264-44] WARN  graphql.GraphQL - Query failed to validate : 'query MyQuery {
+  allAccounts {
+    result {
+      balance
+      id
+      reserved
+      userId
+    }
+  }
+}
+
+mutation test {
+  allAccounts {
+    result {
+      balance
+      id
+      reserved
+      userId
+    }
+  }
+  addAccount(userId: "1") {
+    id
+  }
+}
+'
+2022-01-16 19:01:53,771 [qtp553879264-67] WARN  graphql.GraphQL - Query failed to validate : 'query MyQuery {
+  allAccounts {
+    result {
+      balance
+      id
+      reserved
+      userId
+    }
+  }
+}
+
+mutation test {
+  allAccounts {
+    result {
+      balance
+      id
+      reserved
+      userId
+    }
+  }
+  addAccount(userId: "1") {
+    id
+  }
+}
+'
+2022-01-16 19:01:57,755 [qtp553879264-63] WARN  graphql.GraphQL - Query failed to validate : 'query MyQuery {
+  allAccounts {
+    result {
+      balance
+      id
+      reserved
+      userId
+    }
+  }
+}
+
+mutation test {
+  allAccounts {
+    result {
+      balance
+      id
+      reserved
+      userId
+    }
+  }
+  addAccount(userId: "1") {
+    id
+  }
+}
+'
+2022-01-16 19:02:09,039 [qtp553879264-43] WARN  graphql.GraphQL - Query failed to validate : 'query MyQuery {
+  allAccounts
+}
+
+mutation test {
+  allAccounts {
+    result {
+      balance
+      id
+      reserved
+      userId
+    }
+  }
+  addAccount(userId: "1") {
+    id
+  }
+}
+'
+2022-01-16 19:02:45,851 [qtp553879264-65] WARN  graphql.GraphQL - Query failed to validate : 'query MyQuery {
+  allPayments
+}
+
+mutation test {
+  allAccounts {
+    result {
+      balance
+      id
+      reserved
+      userId
+    }
+  }
+  addAccount(userId: "1") {
+    id
+  }
+}
+'
+2022-01-16 19:02:49,566 [qtp553879264-63] WARN  graphql.GraphQL - Query failed to validate : 'query MyQuery {
+  allPayments
+}
+'
+2022-01-16 19:02:50,529 [qtp553879264-67] WARN  graphql.GraphQL - Query failed to validate : 'query MyQuery {
+  allPayments
+}
+'
+2022-01-16 19:02:50,974 [qtp553879264-63] WARN  graphql.GraphQL - Query failed to validate : 'query MyQuery {
+  allPayments
+}
+'
+2022-01-16 19:02:51,148 [qtp553879264-67] WARN  graphql.GraphQL - Query failed to validate : 'query MyQuery {
+  allPayments
+}
+'
+2022-01-16 19:03:01,640 [qtp553879264-43] WARN  graphql.GraphQL - Query failed to validate : 'query MyQuery {
+  allPayments(pagination: {limit: 10, offset: 10})
+}
+'
+2022-01-16 19:03:02,468 [qtp553879264-63] WARN  graphql.GraphQL - Query failed to validate : 'query MyQuery {
+  allPayments(pagination: {limit: 10, offset: 10})
+}
+'
+2022-01-16 19:04:03,588 [qtp553879264-65] WARN  graphql.GraphQL - Query failed to validate : 'query MyQuery {
+  allPayments(pagination: {limit: 10, offset: 10})
+}
+'
+2022-01-16 19:04:21,975 [qtp553879264-65] WARN  graphql.GraphQL - Query failed to validate : 'query MyQuery {
+  allAccounts
+}
+'
+2022-01-16 19:04:39,675 [qtp553879264-63] WARN  graphql.GraphQL - Query failed to validate : 'query MyQuery {
+  allAccounts(pagination: {limit: 10, offset: 0})
+}
+'
+2022-01-16 19:04:52,577 [qtp553879264-69] WARN  graphql.GraphQL - Query failed to validate : 'query MyQuery {
+  allAccounts(pagination: {limit: 10, offset: 0})
+}
+'
+2022-01-16 19:06:57,278 [qtp553879264-63] WARN  graphql.GraphQL - Query failed to validate : 'query MyQuery {
+  allAccounts
+}
+
+mutation MyMutation {
+  __typename
+}
+'

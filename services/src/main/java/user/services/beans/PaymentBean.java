@@ -1,6 +1,10 @@
 package user.services.beans;
 
 
+import org.eclipse.microprofile.faulttolerance.CircuitBreaker;
+import org.eclipse.microprofile.faulttolerance.Fallback;
+import org.eclipse.microprofile.faulttolerance.Timeout;
+import user.lib.Account;
 import user.lib.Payment;
 import user.models.converters.PaymentConverter;
 import user.models.entities.PaymentEntity;
@@ -10,7 +14,9 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import javax.ws.rs.NotFoundException;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
@@ -32,7 +38,19 @@ public class PaymentBean extends BeanBase {
 
     }
 
-    public Payment getPayment(Integer id){
+    @Timeout(value = 3, unit = ChronoUnit.SECONDS)
+    @CircuitBreaker(requestVolumeThreshold = 2)
+    @Fallback(fallbackMethod = "getPaymentFallback")
+    public Payment getPayment(long id){
+
+        if(id == 2022){
+            try{
+                TimeUnit.SECONDS.sleep(5);
+            } catch (InterruptedException e){
+                System.out.println("Time error:\n" + e);
+            }
+        }
+
         PaymentEntity PaymentEn = em.find(PaymentEntity.class, id);
 
         if (PaymentEn == null){
@@ -43,6 +61,12 @@ public class PaymentBean extends BeanBase {
 
         return u;
 
+    }
+
+    public Payment getPaymentFallback(long id){
+        Payment a = new Payment();
+        a.setId((long)-1);
+        return a;
     }
 
     public Payment createPayment(Payment payment){
@@ -66,7 +90,7 @@ public class PaymentBean extends BeanBase {
 
     }
 
-    public Payment updatePayment(Long id, Payment file) {
+    public Payment updatePayment(long id, Payment file) {
 
         PaymentEntity PaymentEn_old = em.find(PaymentEntity.class, id);
 
@@ -89,14 +113,14 @@ public class PaymentBean extends BeanBase {
         return PaymentConverter.toDto(PaymentEn_new);
     }
 
-    public boolean deletePayment(int id) {
+    public boolean deletePayment(long id) {
 
-        PaymentEntity fileEntity = em.find(PaymentEntity.class, id);
+        PaymentEntity paymentEnt = em.find(PaymentEntity.class, id);
 
-        if (fileEntity != null) {
+        if (paymentEnt != null) {
             try {
                 beginTx(em);
-                em.remove(fileEntity);
+                em.remove(paymentEnt);
                 commitTx(em);
             }
             catch (Exception e) {

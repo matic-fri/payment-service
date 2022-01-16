@@ -9,9 +9,9 @@ kumuluzee:
       port: 8080
   datasources:
     - jndi-name: jdbc/PaymentMetadataDS
-      connection-url: jdbc:postgresql://rso-db.postgres.database.azure.com:5432/postgres
-      username: postgres@rso-db
-      password: P0stgr3s
+      connection-url: jdbc:postgresql://abul.db.elephantsql.com/igkywmox
+      username: igkywmox
+      password: 2_pNpLTnwT-R-CVW86Zdc1CCkj5demVV
       max-pool-size: 20
   health:
     checks:
@@ -24,6 +24,10 @@ kumuluzee:
     web-instrumentation:
       - name: payments-endpoint
         url-pattern: /v1/payments/*
+  graphql:
+    ui:
+      mapping: /myGraphqlPayments
+      enabled: true
   logs:
     config-file: '<?xml version="1.0" encoding="utf-8"?>
 <Configuration>
