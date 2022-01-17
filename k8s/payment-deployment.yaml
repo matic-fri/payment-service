@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - image: matic4fri/rso-payment-service:latest
-          name: file
+          name: payment
           env:
             - name: KUMULUZEE_DATASOURCES0_CONNECTIONURL
               value: jdbc:postgresql://rso-literatura.postgres.database.azure.com:5432/postgres
