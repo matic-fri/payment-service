@@ -9,6 +9,7 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import user.lib.Account;
+import user.lib.UpdateBalance;
 import user.services.beans.AccountBean;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -62,7 +63,7 @@ public class AccountResource {
             )})
     @GET
     @Path("{accountId}")
-    public Response getAccountById(@PathParam("accountId") int accountId){
+    public Response getAccountById(@PathParam("accountId") long accountId){
 
         Account account = accountBean.getAccount(accountId);
 
@@ -70,30 +71,50 @@ public class AccountResource {
             return Response.status(Response.Status.BAD_REQUEST).build();
         }
 
+        if(account.getId()==-1){
+            return Response.status(500, "Fallback. Account does not exist or circuit open.").build();
+        }
+
         return Response.status(Response.Status.OK).entity(account).build();
     }
 
 
-    @Operation(description = "Create new account", summary = "Create account.")
+    @Operation(description = "Create new account for user", summary = "Create account.")
     @APIResponses({
             @APIResponse(responseCode = "200",
-                    description = "New account",
-                    content = @Content(schema = @Schema(implementation = Account.class, type = SchemaType.OBJECT)),
-                    headers = {@Header(name = "X-Total-Count", description = "Account")}
+                    description = "New account for user",
+                    content = @Content(schema = @Schema(implementation = Long.class, type = SchemaType.OBJECT)),
+                    headers = {@Header(name = "X-Total-Count", description = "Create account")}
             )})
     @POST
-    public Response createAccount(Account account){
+    public Response createAccount(long userId){
 
-        if (account.getUserId() == null) {
 
+        Account a = new Account();
+        a.setUserId(userId);
+
+        a.setBalance(0);
+        a.setReserved(0);
+        a = accountBean.createAccount(a);
+
+        return Response.status(Response.Status.OK).entity(a).build();
+    }
+
+    @Operation(description = "Add balance and reserved to current account (can be negative)", summary = "Update balance and reserved.")
+    @APIResponses({
+            @APIResponse(responseCode = "200",
+                    description = "Update balance and reserved for an account",
+                    content = @Content(schema = @Schema(implementation = UpdateBalance.class, type = SchemaType.OBJECT)),
+                    headers = {@Header(name = "X-Total-Count", description = "Update balance for account")}
+            )})
+    @PUT
+    @Path("{accountId}")
+    public Response updateBalance(@PathParam("accountId") long accountId, UpdateBalance ub){
+        Account a = accountBean.updateBalance(accountId, ub);
+        if(a==null){
             return Response.status(Response.Status.BAD_REQUEST).build();
         }
-
-        account.setBalance(0);
-        account.setReserved(0);
-        account = accountBean.createAccount(account);
-
-        return Response.status(Response.Status.OK).entity(account).build();
+        return Response.status(Response.Status.OK).entity(a).build();
     }
 
 
@@ -106,7 +127,7 @@ public class AccountResource {
             )})
     @DELETE
     @Path("{accountId}")
-    public Response deleteLiterature(@PathParam("accountId") int accountId) {
+    public Response deleteLiterature(@PathParam("accountId") long accountId) {
 
         boolean deleted = accountBean.deleteAccount(accountId);
 

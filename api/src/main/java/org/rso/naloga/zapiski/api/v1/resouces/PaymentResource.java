@@ -65,12 +65,16 @@ public class PaymentResource {
             )})
     @GET
     @Path("{paymentId}")
-    public Response getPaymentById(@PathParam("paymentId") int paymentId){
+    public Response getPaymentById(@PathParam("paymentId") long paymentId){
 
         Payment payment = paymentBean.getPayment(paymentId);
 
         if (payment == null){
             return Response.status(Response.Status.BAD_REQUEST).build();
+        }
+
+        if(payment.getId()==-1){
+            return Response.status(500, "Fallback. Payment does not exist or circuit open.").build();
         }
 
         return Response.status(Response.Status.OK).entity(payment).build();
@@ -133,7 +137,7 @@ public class PaymentResource {
             )})
     @PUT
     @Path("{paymentId}")
-    public Response putPayment(@PathParam("paymentId") Long paymentId, Payment payment) {
+    public Response putPayment(@PathParam("paymentId") long paymentId, Payment payment) {
 
         if (payment.getFileId() == null || payment.getReceiverId() == null ||
                 payment.getSenderId() == null || payment.getAmount() == null) {
@@ -160,7 +164,7 @@ public class PaymentResource {
             )})
     @DELETE
     @Path("{paymentId}")
-    public Response deleteLiterature(@PathParam("paymentId") int paymentId) {
+    public Response deleteLiterature(@PathParam("paymentId") long paymentId) {
 
         boolean deleted = paymentBean.deletePayment(paymentId);
 
