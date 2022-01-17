@@ -91,8 +91,8 @@ public class PaymentResource {
     @POST
     public Response createPayment(Payment payment){
 
-        Account sender_account = accountBean.getAccountByUser(payment.getSenderId().intValue());
-        Account receiver_account = accountBean.getAccountByUser(payment.getReceiverId().intValue());
+        Account sender_account = accountBean.getAccountByUser(payment.getSenderId());
+        Account receiver_account = accountBean.getAccountByUser(payment.getReceiverId());
 
         if (sender_account == null || receiver_account == null ||
                 sender_account.getBalance() < payment.getAmount() ||

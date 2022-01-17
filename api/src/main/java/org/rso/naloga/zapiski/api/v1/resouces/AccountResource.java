@@ -9,6 +9,7 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import user.lib.Account;
+import user.lib.NewAccount;
 import user.lib.UpdateBalance;
 import user.services.beans.AccountBean;
 
@@ -83,21 +84,21 @@ public class AccountResource {
     @APIResponses({
             @APIResponse(responseCode = "200",
                     description = "New account for user",
-                    content = @Content(schema = @Schema(implementation = Long.class, type = SchemaType.OBJECT)),
+                    content = @Content(schema = @Schema(implementation = NewAccount.class, type = SchemaType.OBJECT)),
                     headers = {@Header(name = "X-Total-Count", description = "Create account")}
             )})
     @POST
-    public Response createAccount(long userId){
+    public Response createAccount(NewAccount accountInput){
 
 
-        Account a = new Account();
-        a.setUserId(userId);
+        Account account = new Account();
+        account.setUserId(accountInput.getUserId());
 
-        a.setBalance(0);
-        a.setReserved(0);
-        a = accountBean.createAccount(a);
+        account.setBalance(0);
+        account.setReserved(0);
+        account = accountBean.createAccount(account);
 
-        return Response.status(Response.Status.OK).entity(a).build();
+        return Response.status(Response.Status.OK).entity(account).build();
     }
 
     @Operation(description = "Add balance and reserved to current account (can be negative)", summary = "Update balance and reserved.")

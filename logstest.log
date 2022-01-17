@@ -8,3 +8,53 @@
 2022-01-17 22:53:22,938 [main] INFO  io.smallrye.faulttolerance.FaultToleranceExtension - MicroProfile: Fault Tolerance activated (SmallRye Fault Tolerance version: 4.3.1)
 2022-01-17 22:53:23,001 [weld-worker-1] INFO  org.jboss.weld.Bootstrap - WELD-000119: Not generating any bean definitions from com.kumuluz.ee.health.checks.MongoHealthCheck because of underlying class loading error: Type Failure to load: com.mongodb.MongoClient not found.  If this is unexpected, enable DEBUG logging to see the full error.
 2022-01-17 22:53:23,047 [main] INFO  org.jboss.weld.environment.servletJetty - WELD-ENV-001200: Jetty 7.2+ detected, CDI injection will be available in Servlets and Filters. Injection into Listeners should work on Jetty 9.1.1 and newer.
+2022-01-17 23:54:19,463 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-01-17 23:54:20,511 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2022-01-17 23:54:21,541 [main] INFO  org.jboss.weld.environment.servletWeldServlet - WELD-ENV-001008: Initialize Weld using ServletContainerInitializer
+2022-01-17 23:54:21,562 [main] INFO  org.jboss.weld.Version - WELD-000900: 3.1.1 (Final)
+2022-01-17 23:54:21,763 [main] INFO  org.jboss.weld.Bootstrap - WELD-ENV-000020: Using jandex for bean discovery
+2022-01-17 23:54:22,022 [main] INFO  org.jboss.weld.Bootstrap - WELD-000101: Transactional services not available. Injection of @Inject UserTransaction not available. Transactional observers will be invoked synchronously.
+2022-01-17 23:54:22,150 [main] INFO  org.jboss.weld.Event - WELD-000411: Observer method [BackedAnnotatedMethod] public org.glassfish.jersey.ext.cdi1x.internal.ProcessAllAnnotatedTypes.processAnnotatedType(@Observes ProcessAnnotatedType<?>, BeanManager) receives events for all annotated types. Consider restricting events using @WithAnnotations or a generic type with bounds.
+2022-01-17 23:54:22,200 [main] INFO  io.smallrye.faulttolerance.FaultToleranceExtension - MicroProfile: Fault Tolerance activated (SmallRye Fault Tolerance version: 4.3.1)
+2022-01-17 23:54:22,252 [weld-worker-8] INFO  org.jboss.weld.Bootstrap - WELD-000119: Not generating any bean definitions from com.kumuluz.ee.health.checks.MongoHealthCheck because of underlying class loading error: Type Failure to load: com.mongodb.MongoClient not found.  If this is unexpected, enable DEBUG logging to see the full error.
+2022-01-17 23:54:22,332 [main] INFO  org.jboss.weld.environment.servletJetty - WELD-ENV-001200: Jetty 7.2+ detected, CDI injection will be available in Servlets and Filters. Injection into Listeners should work on Jetty 9.1.1 and newer.
+2022-01-17 23:55:46,478 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-01-17 23:55:47,018 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2022-01-17 23:55:47,981 [main] INFO  org.jboss.weld.environment.servletWeldServlet - WELD-ENV-001008: Initialize Weld using ServletContainerInitializer
+2022-01-17 23:55:47,998 [main] INFO  org.jboss.weld.Version - WELD-000900: 3.1.1 (Final)
+2022-01-17 23:55:48,154 [main] INFO  org.jboss.weld.Bootstrap - WELD-ENV-000020: Using jandex for bean discovery
+2022-01-17 23:55:48,341 [main] INFO  org.jboss.weld.Bootstrap - WELD-000101: Transactional services not available. Injection of @Inject UserTransaction not available. Transactional observers will be invoked synchronously.
+2022-01-17 23:55:48,476 [main] INFO  org.jboss.weld.Event - WELD-000411: Observer method [BackedAnnotatedMethod] public org.glassfish.jersey.ext.cdi1x.internal.ProcessAllAnnotatedTypes.processAnnotatedType(@Observes ProcessAnnotatedType<?>, BeanManager) receives events for all annotated types. Consider restricting events using @WithAnnotations or a generic type with bounds.
+2022-01-17 23:55:48,505 [main] INFO  io.smallrye.faulttolerance.FaultToleranceExtension - MicroProfile: Fault Tolerance activated (SmallRye Fault Tolerance version: 4.3.1)
+2022-01-17 23:55:48,563 [weld-worker-1] INFO  org.jboss.weld.Bootstrap - WELD-000119: Not generating any bean definitions from com.kumuluz.ee.health.checks.MongoHealthCheck because of underlying class loading error: Type Failure to load: com.mongodb.MongoClient not found.  If this is unexpected, enable DEBUG logging to see the full error.
+2022-01-17 23:55:48,620 [main] INFO  org.jboss.weld.environment.servletJetty - WELD-ENV-001200: Jetty 7.2+ detected, CDI injection will be available in Servlets and Filters. Injection into Listeners should work on Jetty 9.1.1 and newer.
+2022-01-17 23:56:25,463 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-01-17 23:56:26,044 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2022-01-17 23:56:27,105 [main] INFO  org.jboss.weld.environment.servletWeldServlet - WELD-ENV-001008: Initialize Weld using ServletContainerInitializer
+2022-01-17 23:56:27,121 [main] INFO  org.jboss.weld.Version - WELD-000900: 3.1.1 (Final)
+2022-01-17 23:56:27,288 [main] INFO  org.jboss.weld.Bootstrap - WELD-ENV-000020: Using jandex for bean discovery
+2022-01-17 23:56:27,531 [main] INFO  org.jboss.weld.Bootstrap - WELD-000101: Transactional services not available. Injection of @Inject UserTransaction not available. Transactional observers will be invoked synchronously.
+2022-01-17 23:56:27,720 [main] INFO  org.jboss.weld.Event - WELD-000411: Observer method [BackedAnnotatedMethod] public org.glassfish.jersey.ext.cdi1x.internal.ProcessAllAnnotatedTypes.processAnnotatedType(@Observes ProcessAnnotatedType<?>, BeanManager) receives events for all annotated types. Consider restricting events using @WithAnnotations or a generic type with bounds.
+2022-01-17 23:56:27,743 [main] INFO  io.smallrye.faulttolerance.FaultToleranceExtension - MicroProfile: Fault Tolerance activated (SmallRye Fault Tolerance version: 4.3.1)
+2022-01-17 23:56:27,806 [weld-worker-2] INFO  org.jboss.weld.Bootstrap - WELD-000119: Not generating any bean definitions from com.kumuluz.ee.health.checks.MongoHealthCheck because of underlying class loading error: Type Failure to load: com.mongodb.MongoClient not found.  If this is unexpected, enable DEBUG logging to see the full error.
+2022-01-17 23:56:27,907 [main] INFO  org.jboss.weld.environment.servletJetty - WELD-ENV-001200: Jetty 7.2+ detected, CDI injection will be available in Servlets and Filters. Injection into Listeners should work on Jetty 9.1.1 and newer.
+2022-01-17 23:59:46,058 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-01-17 23:59:46,915 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2022-01-17 23:59:48,226 [main] INFO  org.jboss.weld.environment.servletWeldServlet - WELD-ENV-001008: Initialize Weld using ServletContainerInitializer
+2022-01-17 23:59:48,267 [main] INFO  org.jboss.weld.Version - WELD-000900: 3.1.1 (Final)
+2022-01-17 23:59:48,506 [main] INFO  org.jboss.weld.Bootstrap - WELD-ENV-000020: Using jandex for bean discovery
+2022-01-17 23:59:48,806 [main] INFO  org.jboss.weld.Bootstrap - WELD-000101: Transactional services not available. Injection of @Inject UserTransaction not available. Transactional observers will be invoked synchronously.
+2022-01-17 23:59:48,949 [main] INFO  org.jboss.weld.Event - WELD-000411: Observer method [BackedAnnotatedMethod] public org.glassfish.jersey.ext.cdi1x.internal.ProcessAllAnnotatedTypes.processAnnotatedType(@Observes ProcessAnnotatedType<?>, BeanManager) receives events for all annotated types. Consider restricting events using @WithAnnotations or a generic type with bounds.
+2022-01-17 23:59:48,986 [main] INFO  io.smallrye.faulttolerance.FaultToleranceExtension - MicroProfile: Fault Tolerance activated (SmallRye Fault Tolerance version: 4.3.1)
+2022-01-17 23:59:49,043 [weld-worker-3] INFO  org.jboss.weld.Bootstrap - WELD-000119: Not generating any bean definitions from com.kumuluz.ee.health.checks.MongoHealthCheck because of underlying class loading error: Type Failure to load: com.mongodb.MongoClient not found.  If this is unexpected, enable DEBUG logging to see the full error.
+2022-01-17 23:59:49,278 [main] INFO  org.jboss.weld.environment.servletJetty - WELD-ENV-001200: Jetty 7.2+ detected, CDI injection will be available in Servlets and Filters. Injection into Listeners should work on Jetty 9.1.1 and newer.
+2022-01-18 00:05:23,685 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-01-18 00:05:24,201 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2022-01-18 00:05:25,192 [main] INFO  org.jboss.weld.environment.servletWeldServlet - WELD-ENV-001008: Initialize Weld using ServletContainerInitializer
+2022-01-18 00:05:25,208 [main] INFO  org.jboss.weld.Version - WELD-000900: 3.1.1 (Final)
+2022-01-18 00:05:25,349 [main] INFO  org.jboss.weld.Bootstrap - WELD-ENV-000020: Using jandex for bean discovery
+2022-01-18 00:05:25,536 [main] INFO  org.jboss.weld.Bootstrap - WELD-000101: Transactional services not available. Injection of @Inject UserTransaction not available. Transactional observers will be invoked synchronously.
+2022-01-18 00:05:25,658 [main] INFO  org.jboss.weld.Event - WELD-000411: Observer method [BackedAnnotatedMethod] public org.glassfish.jersey.ext.cdi1x.internal.ProcessAllAnnotatedTypes.processAnnotatedType(@Observes ProcessAnnotatedType<?>, BeanManager) receives events for all annotated types. Consider restricting events using @WithAnnotations or a generic type with bounds.
+2022-01-18 00:05:25,685 [main] INFO  io.smallrye.faulttolerance.FaultToleranceExtension - MicroProfile: Fault Tolerance activated (SmallRye Fault Tolerance version: 4.3.1)
+2022-01-18 00:05:25,717 [weld-worker-7] INFO  org.jboss.weld.Bootstrap - WELD-000119: Not generating any bean definitions from com.kumuluz.ee.health.checks.MongoHealthCheck because of underlying class loading error: Type Failure to load: com.mongodb.MongoClient not found.  If this is unexpected, enable DEBUG logging to see the full error.
+2022-01-18 00:05:25,793 [main] INFO  org.jboss.weld.environment.servletJetty - WELD-ENV-001200: Jetty 7.2+ detected, CDI injection will be available in Servlets and Filters. Injection into Listeners should work on Jetty 9.1.1 and newer.
