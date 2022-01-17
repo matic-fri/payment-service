@@ -4,7 +4,7 @@ RUN mkdir /app
 
 WORKDIR /app
 
-ADD ./api/target/file-api-1.0-SNAPSHOT.jar /app
+ADD ./api/target/payment-api-1.0-SNAPSHOT.jar /app
 
 EXPOSE 8080
 
