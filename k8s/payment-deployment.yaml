@@ -14,21 +14,30 @@ spec:
     spec:
       containers:
         - image: matic4fri/rso-payment-service:latest
-          name: payment
+          name: file
           env:
             - name: KUMULUZEE_DATASOURCES0_CONNECTIONURL
-              value: jdbc:postgresql://rsobaza.postgres.database.azure.com:5432/postgres
+              value: jdbc:postgresql://rso-literatura.postgres.database.azure.com:5432/postgres
             - name: KUMULUZEE_DATASOURCES0_USERNAME
-              value: postgres@rsobaza
+              value: posgres
             - name: KUMULUZEE_DATASOURCES0_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: pg-pass
-                  key: KUMULUZEE_DATASOURCES0_PASSWORD
+              value: Rs0zap1ski
           ports:
             - containerPort: 8080
               name: server
               protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /health/live
+              port: server
+            initialDelaySeconds: 20
+            periodSeconds: 3
+          readinessProbe:
+            httpGet:
+              path: /health/ready
+              port: server
+            initialDelaySeconds: 20
+            periodSeconds: 3
 
 ---
 
@@ -37,7 +46,7 @@ kind: Service
 metadata:
   name: payment
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   ports:
     - port: 8080
       protocol: TCP

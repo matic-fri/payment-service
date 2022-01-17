@@ -1,9 +1,9 @@
-FROM maven:3.8.4-openjdk-11 AS build
+FROM maven:3.8.4-openjdk-17 AS build
 COPY ./ /app
 WORKDIR /app
 RUN mvn clean package -U
 
-FROM adoptopenjdk:11-jre-hotspot
+FROM adoptopenjdk:17-jre-hotspot
 RUN mkdir /app
 WORKDIR /app
 COPY --from=build ./app/api/target/payment-api-1.0-SNAPSHOT.jar /app

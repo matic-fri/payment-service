@@ -1,17 +1,20 @@
 kumuluzee:
+  openapi:
+    servlet:
+      mapping: openapi-specs
   name: payment-service
   env:
     name: dev
   version: 1.0.0
   server:
-    base-url: http://localhost:8080
+    base-url: http://104.45.79.50/payment
     http:
       port: 8080
   datasources:
     - jndi-name: jdbc/PaymentMetadataDS
-      connection-url: jdbc:postgresql://rso-db.postgres.database.azure.com:5432/postgres
-      username: postgres@rso-db
-      password: P0stgr3s
+      connection-url: jdbc:postgresql://rso-literatura.postgres.database.azure.com:5432/postgres
+      username: posgres
+      password: Rs0zap1ski
       max-pool-size: 20
   health:
     checks:
@@ -19,45 +22,49 @@ kumuluzee:
         type: liveness
         jndi-name: jdbc/PaymentMetadataDS
       http-health-check:
-        connection-url: http://localhost:8080/v1/payments
+        connection-url: http://104.45.79.50/payment/v1/payments
   metrics:
     web-instrumentation:
       - name: payments-endpoint
         url-pattern: /v1/payments/*
+  graphql:
+    ui:
+      mapping: /graphql
+      enabled: true
   logs:
     config-file: '<?xml version="1.0" encoding="utf-8"?>
 <Configuration>
     <Appenders>
-        <RollingFile name="file" fileName="${sys:mule.home}${sys:file.separator}logs${sys:file.separator}test.log" 
+        <RollingFile name="file" fileName="${sys:mule.home}${sys:file.separator}logs${sys:file.separator}test.log"
                 filePattern="${sys:mule.home}${sys:file.separator}logs${sys:file.separator}test-%i.log">
             <PatternLayout pattern="%d [%t] %-5p %c - %m%n" />
             <SizeBasedTriggeringPolicy size="10 MB" />
             <DefaultRolloverStrategy max="10"/>
         </RollingFile>
-        
-        <Socket name="socket" host="2cef82f4-2216-4d86-87a7-d59617f61094-ls.logit.io" port="23728" protocol="ssl">
-        <PatternLayout pattern="{&quot;log_timestamp&quot;:&quot;%d&quot; ,&quot;log_thread&quot;:&quot;[%t]&quot; , &quot;log_level&quot;:&quot;%-5p&quot; , %m}%n" /> 
+
+        <Socket name="socket" host="728965fa-b5f7-4528-ac11-fe50e7cb58ec-ls.logit.io" port="18649" protocol="ssl">
+        <PatternLayout pattern="{&quot;log_timestamp&quot;:&quot;%d&quot; ,&quot;log_thread&quot;:&quot;[%t]&quot; , &quot;log_level&quot;:&quot;%-5p&quot; , %m}%n" />
         </Socket>
-        
+
     </Appenders>
     <Loggers>
         <!-- CXF is used heavily by Mule for web services -->
         <AsyncLogger name="org.apache.cxf" level="WARN"/>
-        
+
         <!-- Apache Commons tend to make a lot of noise which can clutter the log-->
         <AsyncLogger name="org.apache" level="WARN"/>
-        
+
         <!-- Reduce startup noise -->
         <AsyncLogger name="org.springframework.beans.factory" level="WARN"/>
-        
+
         <!-- Mule classes -->
         <AsyncLogger name="org.mule" level="INFO"/>
         <AsyncLogger name="com.mulesoft" level="INFO"/>
-        
+
         <!-- Reduce DM verbosity -->
         <AsyncLogger name="org.jetel" level="WARN"/>
         <AsyncLogger name="Tracking" level="WARN"/>
-        
+
         <AsyncRoot level="INFO">
             <AppenderRef ref="file" />
             <AppenderRef ref="socket" />
@@ -66,3 +73,4 @@ kumuluzee:
 </Configuration>'
 rest-properties:
   maintenance-mode: false
+  broken: false
